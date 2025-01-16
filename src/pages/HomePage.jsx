@@ -71,8 +71,8 @@ const HomePage = () => {
                     <button className="close-btn" onClick={toggleMenu}>×</button>
                     <ul className="menu-list">
                         <li><a href="/AboutUs">About Us</a></li>
-                        {/* <li><a href="/Gallery">Gallery</a></li>
-                        <li><a href="/ContactUs">Contact Us</a></li> */}
+                        <li><a href="/Gallery">Gallery</a></li>
+                        <li><a href="/ContactUs">Contact Us</a></li>
                     </ul>
                 </div>
           
