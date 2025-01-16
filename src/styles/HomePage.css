@@ -237,7 +237,7 @@
 
     .facility-image {
         width: 90%; 
-        max-width: 300px;
+        max-width: 150px;
         margin-bottom: 15px;
     }
 
@@ -245,5 +245,7 @@
         width: 100%; 
         padding: 10px;
         font-size: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
     }
 }
