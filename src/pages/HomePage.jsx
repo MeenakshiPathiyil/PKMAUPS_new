@@ -51,6 +51,15 @@ const HomePage = () => {
         return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        const facilityElements = document.querySelectorAll(".facility");
+        facilityElements.forEach((el) => {
+            if (window.innerWidth <= 768) {
+                el.classList.add("slide-in");
+            }
+        })
+    })
+
     const toggleMenu = () => {
         setMenuOpen((prevState) => !prevState);
     };
