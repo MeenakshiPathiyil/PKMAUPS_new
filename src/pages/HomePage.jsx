@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import Footer from "../assets/Footer.jsx";
 import "../styles/HomePage.css";
 import "@fontsource/libre-baskerville/700.css";
 
@@ -66,15 +67,15 @@ const HomePage = () => {
 
     return (
         <div className="homepage">
-
-                <div className={`menu-overlay ${menuOpen ? "open" : ""}`}>
-                    <button className="close-btn" onClick={toggleMenu}>×</button>
-                    <ul className="menu-list">
-                        <li><a href="/AboutUs">About Us</a></li>
-                        <li><a href="/Gallery">Gallery</a></li>
-                        <li><a href="/ContactUs">Contact Us</a></li>
-                    </ul>
-                </div>
+            <div className={`menu-overlay ${menuOpen ? "open" : ""}`}>
+                <button className="close-btn" onClick={toggleMenu}>×</button>
+                <ul className="menu-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/AboutUs">About Us</a></li>
+                    <li><a href="/Gallery">Gallery</a></li>
+                    <li><a href="/ContactUs">Contact Us</a></li>
+                </ul>
+            </div>
           
             <button className="hamburger" onClick={toggleMenu}>
                 ☰
@@ -115,6 +116,8 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
+
+            <Footer />
 
         </div>
     );

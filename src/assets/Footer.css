@@ -1,0 +1,34 @@
+.footer-section {
+    background-color: rgba(1, 17, 37, 0.9);
+    color: #faf6f6;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #faf6f6;
+    font-size: clamp(0.5rem, 1vw, 2rem);
+    font-family: "Libre Baskerville", serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #3684db;
+}
+
+.footer-icon {
+    font-size: clamp(1rem, 2vw, 2.5rem);
+}
+

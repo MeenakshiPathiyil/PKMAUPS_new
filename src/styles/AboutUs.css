@@ -4,6 +4,10 @@
     box-sizing: border-box; 
 }
 
+.about-us {
+    background-color: #223a59;
+}
+
 .about-us-container {
     display: flex;
     flex-direction: row;
@@ -11,7 +15,6 @@
     align-items: flex-start;
     gap: 20px;
     padding: 80px;
-    background-color: #223a59;
     color: #faf6f6ce;
     font-family: "Montserrat";
     max-width: 100%;
