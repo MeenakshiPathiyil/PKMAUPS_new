@@ -92,7 +92,6 @@ header {
     border: none;
     cursor: pointer;
     z-index: 200;
-    background-color: rgba(0, 0, 0, 0.5);
 }
   
 @media (max-width: 1024px) {

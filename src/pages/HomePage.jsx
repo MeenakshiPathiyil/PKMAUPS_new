@@ -73,6 +73,8 @@ const HomePage = () => {
                     <li><a href="/">Home</a></li>
                     <li><a href="/AboutUs">About Us</a></li>
                     <li><a href="/Gallery">Gallery</a></li>
+                    <li><a href="/Students">Students Corner</a></li>
+                    <li><a href="/News">In The News</a></li>
                     <li><a href="/ContactUs">Contact Us</a></li>
                 </ul>
             </div>

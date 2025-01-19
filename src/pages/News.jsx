@@ -3,19 +3,24 @@ import { Link } from "react-router-dom";
 import Footer from "../assets/Footer.jsx";
 import "../styles/Gallery.css";
 
-const Students = () => {
+const News = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [preview, setPreview] = useState(false);
     const [previewUrl, setPreviewUrl] = useState("");
     const [previewIndex, setPreviewIndex] = useState(0);
 
     const images = [
-        { id: 0, src: "/studentscorner/pkmaup6.JPG", alt: "Image 1" },
-        { id: 1, src: "/studentscorner/pkmaup7.jpeg", alt: "Image 2" },
-        { id: 2, src: "/studentscorner/pkmaup8.jpeg", alt: "Image 3" },
-        { id: 3, src: "/studentscorner/Students2.jpeg", alt: "Image 4" },
-        { id: 4, src: "/studentscorner/Students3.jpeg", alt: "Image 5" },
-        { id: 5, src: "/studentscorner/Students4.jpeg", alt: "Image 6" }
+        { id: 0, src: "/news/news1.jpg", alt: "Image 1" },
+        { id: 1, src: "/news/news2.jpg", alt: "Image 2" },
+        { id: 2, src: "/news/news3.jpg", alt: "Image 3" },
+        { id: 3, src: "/news/news4.jpg", alt: "Image 4" },
+        { id: 4, src: "/news/news5.jpg", alt: "Image 5" },
+        { id: 5, src: "/news/news6.jpg", alt: "Image 6" },
+        { id: 6, src: "/news/news7.jpg", alt: "Image 7" },
+        { id: 7, src: "/news/news8.jpg", alt: "Image 8" },
+        { id: 8, src: "/news/news9.jpg", alt: "Image 9" },
+        { id: 9, src: "/news/news10.jpg", alt: "Image 10" },
+        { id: 10, src: "/news/news11.jpg", alt: "Image 11" }
     ];
 
     const toggleMenu = () => {
@@ -47,7 +52,7 @@ const Students = () => {
     return (
         <div className="gallery">
             <header>
-                <h1>Students Corner</h1>
+                <h1>Gallery</h1>
             </header>
             <div className={`menu-overlay ${menuOpen ? "open" : ""}`}>
                 <button className="close-btn" onClick={toggleMenu}>×</button>
@@ -103,4 +108,4 @@ const Students = () => {
     );
 };
 
-export default Students;
+export default News;
