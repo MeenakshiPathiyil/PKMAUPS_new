@@ -4,6 +4,10 @@
     box-sizing: border-box; 
 }
 
+.school-name Link {
+    text-decoration: none;
+}
+
 .about-us {
     background-color: #223a59;
 }
