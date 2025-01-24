@@ -40,7 +40,7 @@
     word-wrap: break-word;
     overflow-wrap: anywhere;
     max-width: 250px;
-    padding: 50px;
+    padding-top: 100px;
 }
   
 .manager-image {

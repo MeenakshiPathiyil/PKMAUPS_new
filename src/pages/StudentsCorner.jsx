@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../assets/Footer.jsx";
 import "../styles/Gallery.css";
@@ -8,15 +8,35 @@ const Students = () => {
     const [preview, setPreview] = useState(false);
     const [previewUrl, setPreviewUrl] = useState("");
     const [previewIndex, setPreviewIndex] = useState(0);
+    const [showButton, setShowButton] = useState(false);
 
     const images = [
-        { id: 0, src: "/studentscorner/pkmaup6.JPG", alt: "Image 1" },
-        { id: 1, src: "/studentscorner/pkmaup7.jpeg", alt: "Image 2" },
-        { id: 2, src: "/studentscorner/pkmaup8.jpeg", alt: "Image 3" },
-        { id: 3, src: "/studentscorner/Students2.jpeg", alt: "Image 4" },
-        { id: 4, src: "/studentscorner/Students3.jpeg", alt: "Image 5" },
-        { id: 5, src: "/studentscorner/Students4.jpeg", alt: "Image 6" }
+        { id: 0, src: "/studentscorner/students1.jpeg", alt: "Image 1" },
+        { id: 1, src: "/studentscorner/students2.jpeg", alt: "Image 2" },
+        { id: 2, src: "/studentscorner/students3.jpeg", alt: "Image 3" },
+        { id: 3, src: "/studentscorner/students4.JPG", alt: "Image 4" },
+        { id: 4, src: "/studentscorner/students5.jpeg", alt: "Image 5" },
+        { id: 5, src: "/studentscorner/students6.jpeg", alt: "Image 6" },
+        { id: 6, src: "/studentscorner/students7.PNG", alt: "Image 7" },
+        { id: 7, src: "/studentscorner/students8.PNG", alt: "Image 8" },
+        { id: 8, src: "/studentscorner/students9.PNG", alt: "Image 9" },
+        { id: 9, src: "/studentscorner/students10.PNG", alt: "Image 10" },
+        { id: 10, src: "/studentscorner/students11.PNG", alt: "Image 11" }
     ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setShowButton(true);
+            } 
+            else {
+                setShowButton(false);
+            }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleMenu = () => {
         setMenuOpen((prevState) => !prevState);
@@ -45,7 +65,7 @@ const Students = () => {
 
 
     return (
-        <div className="gallery">
+        <div className="gallery bg-gradient-to-r from-gray-800 via-sky-700 to-sky-600">
             <header>
                 <h1>Students Corner</h1>
             </header>
@@ -98,6 +118,12 @@ const Students = () => {
                     </div>
                 )}
             </div>
+            <button
+                className={`back-to-top ${showButton ? "show" : ""}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+                ↑
+            </button>
             <Footer/>
         </div>
     );

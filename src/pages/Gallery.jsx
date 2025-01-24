@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../assets/Footer.jsx";
 import "../styles/Gallery.css";
@@ -8,39 +8,48 @@ const Gallery = () => {
     const [preview, setPreview] = useState(false);
     const [previewUrl, setPreviewUrl] = useState("");
     const [previewIndex, setPreviewIndex] = useState(0);
+    const [showButton, setShowButton] = useState(false);
 
     const images = [
-        { id: 0, src: "/gallery/pkmaup10.jpg", alt: "Image 1" },
-        { id: 1, src: "/gallery/pkmaup14.jpg", alt: "Image 2" },
-        { id: 2, src: "/gallery/pkmaup16.jpg", alt: "Image 3" },
-        { id: 3, src: "/gallery/pkmaup18.jpg", alt: "Image 4" },
-        { id: 4, src: "/gallery/pkmaup19.jpg", alt: "Image 5" },
-        { id: 5, src: "/gallery/pkmaup22.JPG", alt: "Image 6" },
-        { id: 6, src: "/gallery/pkmaup23.jpg", alt: "Image 7" },
-        { id: 7, src: "/gallery/pkmaup24.jpg", alt: "Image 8" },
-        { id: 8, src: "/gallery/pkmaup27.jpg", alt: "Image 9" },
-        { id: 9, src: "/gallery/pkmaup28.JPG", alt: "Image 10" },
-        { id: 10, src: "/gallery/pkmaup33.jpg", alt: "Image 11" },
-        { id: 11, src: "/gallery/pkmaup34.jpg", alt: "Image 12" },
-        { id: 12, src: "/gallery/pkmaup35.jpg", alt: "Image 13" },
-        { id: 13, src: "/gallery/pkmaup36.jpg", alt: "Image 14" },
-        { id: 14, src: "/gallery/pkmaup40.jpg", alt: "Image 15" },
-        { id: 15, src: "/gallery/pkmaup41.jpg", alt: "Image 16" },
-        { id: 16, src: "/gallery/pkmaup42.jpg", alt: "Image 17" },
-        { id: 17, src: "/gallery/pkmaup43.jpg", alt: "Image 18" },
-        { id: 18, src: "/gallery/pkmaup44.jpg", alt: "Image 19" },
-        { id: 19, src: "/gallery/pkmaup45.jpg", alt: "Image 20" },
-        { id: 20, src: "/gallery/pkmaup46.jpg", alt: "Image 21" },
-        { id: 21, src: "/gallery/pkmaup47.jpg", alt: "Image 22" },
-        { id: 22, src: "/gallery/pkmaup48.jpg", alt: "Image 23" },
-        { id: 23, src: "/gallery/pkmaup49.jpg", alt: "Image 24" },
-        { id: 24, src: "/gallery/pkmaup50.jpg", alt: "Image 25" },
-        { id: 25, src: "/gallery/pkmaup51.jpg", alt: "Image 26" }
+        { id: 0, src: "/gallery/gallery1.jpg", alt: "Image 1" },
+        { id: 1, src: "/gallery/gallery2.jpg", alt: "Image 2" },
+        { id: 2, src: "/gallery/gallery3.jpg", alt: "Image 3" },
+        { id: 3, src: "/gallery/gallery4.jpg", alt: "Image 4" },
+        { id: 4, src: "/gallery/gallery5.jpg", alt: "Image 5" },
+        { id: 5, src: "/gallery/gallery6.jpg", alt: "Image 6" },
+        { id: 6, src: "/gallery/gallery7.jpg", alt: "Image 7" },
+        { id: 7, src: "/gallery/gallery8.jpg", alt: "Image 8" },
+        { id: 8, src: "/gallery/gallery9.jpg", alt: "Image 9" },
+        { id: 9, src: "/gallery/gallery10.jpg", alt: "Image 10" },
+        { id: 10, src: "/gallery/gallery11.jpg", alt: "Image 11" },
+        { id: 11, src: "/gallery/gallery12.jpg", alt: "Image 12" },
+        { id: 12, src: "/gallery/gallery13.jpg", alt: "Image 13" },
+        { id: 13, src: "/gallery/gallery14.jpg", alt: "Image 14" },
+        { id: 14, src: "/gallery/gallery15.jpg", alt: "Image 15" },
+        { id: 15, src: "/gallery/gallery16.jpg", alt: "Image 16" },
+        { id: 16, src: "/gallery/gallery17.jpg", alt: "Image 17" },
+        { id: 17, src: "/gallery/gallery18.jpg", alt: "Image 18" },
+        { id: 18, src: "/gallery/gallery19.jpg", alt: "Image 19" },
+        { id: 19, src: "/gallery/gallery20.jpg", alt: "Image 20" }
     ];
 
     const toggleMenu = () => {
         setMenuOpen((prevState) => !prevState);
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setShowButton(true);
+            } 
+            else {
+                setShowButton(false);
+            }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handlePreview = (id) => {
         setPreview(true);
@@ -65,7 +74,7 @@ const Gallery = () => {
 
 
     return (
-        <div className="gallery">
+        <div className="gallery bg-gradient-to-r from-gray-800 via-sky-700 to-sky-600">
             <header>
                 <h1>Gallery</h1>
             </header>
@@ -118,6 +127,12 @@ const Gallery = () => {
                     </div>
                 )}
             </div>
+            <button
+                className={`back-to-top ${showButton ? "show" : ""}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+                ↑
+            </button>
             <Footer/>
         </div>
     );

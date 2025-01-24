@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../assets/Footer.jsx";
 import "../styles/Gallery.css";
@@ -8,6 +8,7 @@ const News = () => {
     const [preview, setPreview] = useState(false);
     const [previewUrl, setPreviewUrl] = useState("");
     const [previewIndex, setPreviewIndex] = useState(0);
+    const [showButton, setShowButton] = useState(false);
 
     const images = [
         { id: 0, src: "/news/news1.jpg", alt: "Image 1" },
@@ -22,6 +23,20 @@ const News = () => {
         { id: 9, src: "/news/news10.jpg", alt: "Image 10" },
         { id: 10, src: "/news/news11.jpg", alt: "Image 11" }
     ];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setShowButton(true);
+            } 
+            else {
+                setShowButton(false);
+            }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleMenu = () => {
         setMenuOpen((prevState) => !prevState);
@@ -50,9 +65,9 @@ const News = () => {
 
 
     return (
-        <div className="gallery">
+        <div className="gallery bg-gradient-to-r from-gray-800 via-sky-700 to-sky-600">
             <header>
-                <h1>Gallery</h1>
+                <h1>In The News</h1>
             </header>
             <div className={`menu-overlay ${menuOpen ? "open" : ""}`}>
                 <button className="close-btn" onClick={toggleMenu}>×</button>
@@ -103,6 +118,12 @@ const News = () => {
                     </div>
                 )}
             </div>
+            <button
+                className={`back-to-top ${showButton ? "show" : ""}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+                ↑
+            </button>
             <Footer/>
         </div>
     );

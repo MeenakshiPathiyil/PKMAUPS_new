@@ -1,25 +1,27 @@
+.contact-us {
+    background-color: #223a59;
+}
+
 .contact-us-container {
     display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start; 
+    justify-content: space-between;
+    gap: 20px;
     min-height: 100vh; 
-    background-color: #223a59; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    text-align: center; 
     box-sizing: border-box; 
 }
 
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    gap: 20px; 
-    width: 100%;
-    max-width: 800px;
+.contact-text {
+    flex: 1;
+    padding-top: 200px;
 }
 
-.contact h2 {
+.contact-text h2 {
     font-size: clamp(0.8rem, 1.5vw, 1.7rem);
     font-weight: bold;
     color: #faf6f6;
@@ -27,10 +29,18 @@
     font-family: "Libre Baskerville";
 }
 
-.contact p {
+.contact-text p {
     font-size: clamp(0.8rem, 1vw, 1.5rem);
     line-height: 1.6;
     color: #faf6f6; 
     margin-bottom: 20px;
     font-family: "Montserrat";
+}
+
+.google-maps {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 300px;
 }

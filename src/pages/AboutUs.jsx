@@ -5,13 +5,14 @@ import "../styles/AboutUs.css";
 
 const AboutUs = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showButton, setShowButton] = useState(false);
     const managers = [
-        { id: 1, name: "Shri. Pathiyil Kesavan Nair", year: "1893-1940", image: "/Keshavan.jpg"},
-        { id: 2, name: "Shri. Sethumadhavan Nair", year: "1940-1967", image: "/Sethumadhavan.jpg"},
-        { id: 3, name: "Smt. Madanakalyani Amma", year: "1967-2008", image: "/Madanakalyani.jpg"},
-        { id: 4, name: "Shri. P Muraleedharan", year: "2008-2017", image: "/random.jpg"},
-        { id: 5, name: "Smt. Pathiyil Rugmani", year: "2017-2020", image: "/random.jpg"},
-        { id: 6, name: "Smt. Valsala Nottath", year: "2020-2024", image: "/valsala.jpeg"},
+        { id: 1, name: "Shri. Pathiyil Kesavan Nair", year: "1893-1940", image: "/managers/Keshavan.jpg"},
+        { id: 2, name: "Shri. Sethumadhavan Nair", year: "1940-1967", image: "/managers/Sethumadhavan.jpg"},
+        { id: 3, name: "Smt. Madanakalyani Amma", year: "1967-2008", image: "/managers/Madanakalyani.jpg"},
+        { id: 4, name: "Shri. P Muraleedharan", year: "2008-2017", image: "/managers/Muraleedharan.jpg"},
+        { id: 5, name: "Smt. Pathiyil Rugmani", year: "2017-2020", image: "/managers/Rugmini.jpg"},
+        { id: 6, name: "Smt. Valsala Nottath", year: "2020-2024", image: "/managers/valsala.jpeg"},
     ];
 
     useEffect(() => {
@@ -32,6 +33,20 @@ const AboutUs = () => {
         return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setShowButton(true);
+            } 
+            else {
+                setShowButton(false);
+            }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const oddManagers = managers.filter((_,index) => index%2 === 0);
     const evenManagers = managers.filter((_,index) => index%2 !== 0);
 
@@ -41,7 +56,7 @@ const AboutUs = () => {
 
     return (
         <div className="about-us">
-            <div className="about-us-container">
+            <div className="about-us-container bg-gradient-to-r from-gray-800 via-sky-700 to-sky-600">
                 <div className={`menu-overlay ${menuOpen ? "open" : ""}`}>
                     <button className="close-btn" onClick={toggleMenu}>×</button>
                     <ul className="menu-list">
@@ -118,8 +133,13 @@ const AboutUs = () => {
                         </div>
                     ))}
                 </div>
-
             </div>
+            <button
+                className={`back-to-top ${showButton ? "show" : ""}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+                ↑
+            </button>
             <Footer />
         </div>
     );

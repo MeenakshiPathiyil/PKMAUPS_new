@@ -6,26 +6,24 @@ import "@fontsource/libre-baskerville/700.css";
 const HomePage = () => {
     const [showHeader, setShowHeader] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const facilities = [
-        { id: 1, title: "Smart Classrooms", description: "blah blah blah", image: "/random.jpg"},
-        { id: 2, title: "USS and LSS Coaching", description: "blah blah blah", image: "/random.jpg"},
-        { id: 3, title: "Karate Training and Sports & Football Coaching", description: "blah blah blah", image: "/random.jpg"},
-        { id: 4, title: "Vayanakoottam", description: "blah blah blah", image: "/random.jpg"},
-        { id: 5, title: "Spoken English", description: "blah blah blah", image: "/random.jpg"},
-        { id: 6, title: "Digital Newspaper", description: "blah blah blah", image: "/random.jpg"},
-        { id: 7, title: "School Radio", description: "blah blah blah", image: "/random.jpg"},
-        { id: 8, title: "Abacus Class", description: "blah blah blah", image: "/random.jpg"},
-        { id: 9, title: "Special Club Activities", description: "blah blah blah", image: "/random.jpg"},
-        { id: 10, title: "Science Workshop and Social Science, Mathematics Lab", description: "blah blah blah", image: "/random.jpg"}
+    const [showButton, setShowButton] = useState(false);
+    const facilities = [ 
+        { id: 1, title: "Smart Classrooms", image: "/facilities/facility4.jpg"},
+        { id: 2, title: "Vayanakoottam / Literary Club", image: "/facilities/facility1.jpg"},
+        { id: 3, title: "Science Workshop and Social Science, Mathematics Lab", image: "/facilities/facility3.jpg"},
+        { id: 4, title: "Children's park", image: "/facilities/facility5.jpg"},
+        { id: 5, title: "Computer Lab", image: "/facilities/facility2.jpg"}
     ];
 
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 100) {
                 setShowHeader(true);
+                setShowButton(true);
             } 
             else {
                 setShowHeader(false);
+                setShowButton(false);
             }
         };
 
@@ -94,14 +92,17 @@ const HomePage = () => {
             )}
 
             <section className="landing-section">
-            <img className="background-image" src="/download.jfif" alt="School Background" />
+            <video className="background-video" autoPlay loop muted playsInline >
+                <source src="/pkmaups.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
             <div className="pkmaups">
-                <h1>Pathiyil Keshavan Nair Memorial</h1>
+                <h1>Pathiyil Kesavan Nair Memorial</h1>
                 <h1>AUP School</h1>
             </div>
             </section>
 
-            <section className="facilities-section">
+            <section className="facilities-section bg-gradient-to-r from-gray-800 via-sky-800 to-sky-500">
                 <h2>Facilities</h2>
                 <div className="facilities-container">
                     {facilities.map((facility, index) => (
@@ -118,6 +119,13 @@ const HomePage = () => {
                     ))}
                 </div>
             </section>
+
+            <button
+                className={`back-to-top ${showButton ? "show" : ""}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+                ↑
+            </button>
 
             <Footer />
 
