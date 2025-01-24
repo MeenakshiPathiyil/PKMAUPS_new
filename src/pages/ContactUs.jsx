@@ -60,7 +60,7 @@ const ContactUs = () => {
 
                     <div className="contact-school">
                         <h2>School Admin:</h2>
-                        <p>Phone: 9048 579 765 <br/> 9495 450 440 <br/> Email: school.admin@pkmaups.com</p>
+                        <p>Phone: 94462 40556 <br/> &emsp;&emsp;&emsp;&ensp; 94954 50440 <br/> Email: school.admin@pkmaups.com</p>
                     </div>
 
                     <div className="address">
